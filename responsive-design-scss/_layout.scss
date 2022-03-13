@@ -1,0 +1,144 @@
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 0;
+    text-decoration: 0;
+    font: 100% $font-stack;
+    color: $primary-color;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+%header {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    align-items: center;
+}
+
+%header-nav {
+    flex-grow: 2;
+    align-self: flex-start;
+    display: flex;
+    justify-content: right;
+}
+
+
+body { 
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    @extend %header;
+    p[id="logo"] {
+        border-radius: 50%;
+        border: $border;
+        background: $secondary-color;
+
+        width:  75px;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 150%;
+        font-weight: bold;
+    }
+
+    p[id="title"] {
+        margin-left: 15px;
+        font-size: 200%;
+        font-weight: bold;
+    }
+
+    img[id="hamburger"]{
+        display: none;
+    }
+
+    nav {
+        @extend %header-nav;
+        a {
+            width: 75px;
+        }
+    }
+}
+
+main { 
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+article {
+    @include article;
+    p[id="header-lorem"]{
+        @include background-article-title($bckg-title: lightblue);
+    }
+
+    p[id="header-ipsum"]{
+        @include background-article-title($bckg-title: orange);
+    }
+
+    p[id="header-dolor"]{
+        @include background-article-title($bckg-title: pink);
+    }
+
+    p[id="text"]{
+        padding: 15px;
+    }
+    
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    border-top: $border;
+    margin-top: 15px;
+    background: $secondary-color;
+    
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+p[id="author"] {
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px){
+    @include media-devices-main-header(min-width, max-width);
+
+    article[id="two"]{
+        @include article($flex: 2, $flex-percent: 0px)
+    }
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px){
+
+    @include media-devices-main-header(min-width, max-width);
+    footer {
+        display: none;
+    }
+
+    main { 
+        flex-wrap: wrap;
+    }
+
+}

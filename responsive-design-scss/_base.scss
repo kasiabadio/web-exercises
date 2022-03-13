@@ -1,0 +1,49 @@
+$primary-color: black;
+$secondary-color: lightgray;
+$font-stack: 16px, Verdana;
+$border: 2px solid black;
+
+@mixin background-article-title($bckg-title: $secondary-color){
+    border-bottom: $border;
+    border-left: $border;
+    background: $bckg-title;
+
+    height: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    
+    font-size: 1.5em;
+}
+
+@mixin media-devices-main-header($min-width, $max-width){
+    
+    header {
+        p[id="title"]{
+            display: none;
+        }
+        
+        nav a {
+            display: none;
+        }
+    
+        img[id="hamburger"]{
+            display: inline;
+            height: 75px;
+        }
+    }
+}
+
+@mixin article($width: 100%, $display: flex, $flex-direction: column, $flex: 1, $flex-percent: 100%){
+    
+    margin: 15px;
+    width: 100%;
+    border: $border;
+    display: $display;
+    flex-direction: $flex-direction;
+    flex: $flex $flex-percent;
+    background: $secondary-color;
+
+}
