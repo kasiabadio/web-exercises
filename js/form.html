@@ -9,6 +9,7 @@
 </head>
 
 <body>
+ 
     <form name="dane_osobowe">
         <table>
             <tr>
@@ -22,14 +23,14 @@
             <tr>
                 <td>Płeć</td>
                 <td>
-                    <input name="f_plec" value="f_k" checked type="radio" />kobieta<br />
-                    <input name="f_plec" value="f_m" type="radio" />mężczyzna
+                    <input name="f_plec" value="f_k" checked type="radio" onclick="return isWoman();"/>kobieta<br />
+                    <input name="f_plec" value="f_m" type="radio" onclick="return isWoman();"/>mężczyzna
                     <span class="err" id="e_plec"></span>
                 </td>
             </tr>
             <tr>
                 <td>N. panieńskie</td>
-                <td><input type="text" name="f_nazwisko_p"><span class="err" id="e_nazwisko_p"></span></td>
+                <td><span id="NazwiskoPanienskie" style="visibility:visible"><input type="text" name="f_nazwisko_p" ><span class="err" id="e_nazwisko_p"></span></span></td>
             </tr>
             <tr>
                 <td>E-mail</td>

@@ -29,6 +29,24 @@ function checkStringAndFocus(obj, msg, validation_function){
     }
 }
 
+function hideElement(e) {
+    document.getElementById(e).style.visibility = 'hidden';
+}
+
+function showElement(e) {
+    document.getElementById(e).style.visibility = 'visible';
+}
+
+function isWoman(){
+
+    let np = document.getElementById("NazwiskoPanienskie");
+    if (np.style.visibility === 'visible'){
+        hideElement("NazwiskoPanienskie");
+    } else {
+        showElement("NazwiskoPanienskie");
+    }
+}
+
 
 function validate(form){
 
