@@ -4,12 +4,36 @@
 <head>
     <meta charset="utf-8" />
     <title>JavaScript</title>
-    <script src="form_check.js"></script>
+    <script type="text/javascript" src="form_check.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="form.css" title="Arkusz stylów css"/>
 </head>
 
 <body>
- 
+    
+    <table>
+        <tbody>
+        <tr><td>Wiersz 1</td></tr>
+        <tr><td>Wiersz 2</td></tr>
+        <tr><td>Wiersz 3</td></tr>
+        <tr><td>Wiersz 4</td></tr>
+        <tr><td>Wiersz 5</td></tr>
+        <tr><td>Wiersz 6</td></tr>
+        <tr><td>Wiersz 7</td></tr>
+        </tbody>
+    </table>
+
+    <input id="zamiana" type="submit" value="Zamień">
+
+    <script>
+        let x = document.getElementsByTagName("tr")[0];
+        alterRows(1, x);
+        document.getElementById('zamiana').addEventListener('click', function() {
+            let x = document.getElementsByTagName("table")[0];
+            swapRows(x);
+        }, false);
+    </script>
+    
     <form name="dane_osobowe">
         <table>
             <tr>
@@ -48,11 +72,20 @@
                 <td>Miasto</td>
                 <td><input type="text" name="f_miasto"><span class="err" id="e_miasto"></span></td>
             </tr>
+
             <tr>
                 <td>Uwagi</td>
-                <td><textarea rows="5" cols="15" name="uwagi"></textarea>
+                <td>
+                    <textarea rows="5" cols="15" name="uwagi"
+                        onkeyup="cnt(this.form.uwagi, document.getElementById('zostalo'), 150)">
+                    </textarea>
                 </td>
             </tr>
+            <tr>
+                <td>Pozostało <span id="zostalo">150</span> znaków</td>
+            </tr>
+
+
             <tr>
                 <td colspan="2"><input type="submit" value="Prześlij" onclick="return validate(this.form);"></td>
             </tr>
