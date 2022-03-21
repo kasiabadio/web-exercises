@@ -24,6 +24,7 @@ header nav {
   justify-content: right; }
 
 body {
+  margin: 0px;
   padding: 0px;
   display: flex;
   flex-direction: column;
@@ -52,7 +53,7 @@ header nav a {
 main {
   display: flex;
   flex-direction: row;
-  padding: 15px; }
+  margin: 15px; }
 
 article {
   margin: 15px;
@@ -127,17 +128,33 @@ p {
     display: inline;
     height: 75px; }
 
-  main > * {
-    flex: 1 100%; }
+  main {
+    display: inline-block;
+    padding: 15px; }
 
-  article[id="two"] {
-    margin: 15px;
+  main > article {
+    padding: 0px;
+    margin: 0px;
     width: 100%;
     border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    flex: 2 0px;
-    background: lightgray; } }
+    background: lightgray; }
+
+  article[id="one"] {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px; }
+
+  article[id="two"] {
+    width: 48.2%;
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px; }
+
+  article[id="three"] {
+    width: 48.2%;
+    float: right;
+    margin-top: 15px;
+    margin-left: 15px; } }
 @media screen and (min-width: 0px) and (max-width: 600px) {
   header p[id="title"] {
     display: none; }
