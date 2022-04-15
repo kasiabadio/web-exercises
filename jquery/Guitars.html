@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Guitars</title>
+        <script type="text/javascript">
+            
+            $(document).ready(function () {
+
+                var guitars = []
+                $.getJSON('guitars.json', function(data) {
+                    $.each(data.Guitar, function(i, f){
+                        var brand = f.Brand;
+                        var model = f.Model;
+                        console.log("brand: " + brand + " model: " + model);
+                    });
+                });
+
+            });
+           
+
+            //var list_div = document.getElementById("list");
+            //var ul = document.createElement("ul");
+
+            //for (var i = 0; i < data.list.length; i++){
+             //   var li = document.createElement("li");
+             //   li.innerHTML = data.list[i].puntata;
+             //   ul.appendChild(li);
+            //}
+
+            //list_div.appendChild(ul);
+
+        </script>
+    </head>
+    <body>
+        <button>Button</button>
+        <div class="col-lg-12" id="list"></div>
+    </body>
+</html>
