@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>jQuery</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    ></script>
     <script type="text/javascript">
+      $(document).ready(function () {
+        alert(
+          "Did you know that you can copy this text using Ctrl + C shortcut? "
+        );
 
-
-        $(document).ready(function () {
-            alert('Did you know that you can copy this text using Ctrl + C shortcut? ');
-            
-            // ZADANIE 11
-            // name of the event & function called when this event is triggered
-            $('button').bind('asdf', function () { alert('The cake is a lie!'); });
-
-            // ZADANIE 10 
-            // assigns the edit function to the click event on every td element for one-time execution
-            $('td').one('click', function edit(){
-                line = $(this).val();
-                $(this).html("<input type='text' id='edit' value='+line+'>"); // create input element    
-                $('button').trigger('asdf'); // event is triggered using trigger function
-            });
-
-            // set focus on the created input element
-            $('#edit')[0].focus();
-
-            // table goes back to normal when it looses focus
-            //$('#edit').blur(function() {
-
-                //line = $(this).val();
-                //$(this).html("<input type='text' id='edit' value='+line+'>")
-                //$('td').one('click', function edit(){})
-
-            //})
-                
-            // added events can be removed using the unbind function
-            $('*').unbind();
-            
+        // ZADANIE 10
+        // assigns the edit function to the click event on every td element for one-time execution
+        $("td").one("click", function edit() {
+          let line = $(this).text();
+          $(this).html("<input type='text' id='edit' value='" + line + "'>"); // create input element
+          $("button").trigger("asdf"); // event is triggered using trigger function
         });
 
-    </script>
-</head>
+        // set focus on the created input element
+        $("#edit").focus();
 
-<body>
-    
+        // table goes back to normal when it looses focus
+        $("#edit").blur();
+
+        // ZADANIE 11
+        // name of the event & function called when this event is triggered
+        $("button").bind("asdf", function () {
+          alert("The cake is a lie!");
+        });
+
+        // added events can be removed using the unbind function
+        //$("button").unbind();
+        $("button").unbind();
+      });
+    </script>
+  </head>
+
+  <body>
     <table>
-        <tr><td>One</td></tr>
-        <tr><td>Two</td></tr>
-        <tr><td>Three</td></tr>
-        <tr><td>...</td></tr>
+      <tr>
+        <td>One</td>
+      </tr>
+      <tr>
+        <td>Two</td>
+      </tr>
+      <tr>
+        <td>Three</td>
+      </tr>
+      <tr>
+        <td>...</td>
+      </tr>
     </table>
 
     <button>Button</button>
-</body>
-
+  </body>
 </html>
